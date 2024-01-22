@@ -26,7 +26,6 @@ function calculate() {
         const display = document.getElementById("result")
         if (display.value) {
             display.value = Function("return " + display.value)()
-            localStorage.setItem("result", display.value) // Store the result in localStorage
         } else {
             alert('try again')
         }
