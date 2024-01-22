@@ -1,0 +1,53 @@
+.body{
+   
+}
+.Calculator{
+    border: 1px solid #000;
+    display:flex;
+    align-items:flex-start;
+    flex-direction:column;
+}
+.display
+{  
+    border: 1px solid #000;
+    align-items:flex-start;
+}
+.numbers{
+    display:flex;  
+    flex-direction:column-reverse;
+}
+.row5
+{
+    display:flex;
+    flex-direction:column;
+    
+}
+
+
+/* .display
+{  
+    border: 1px solid #000;
+    align-items:flex-start;
+}
+.numbers{
+    display:flex;  
+    align-items:flex-end;
+    flex-direction:column-reverse;
+}
+.operations{
+    display:flex;  
+    flex-direction:column-reverse;
+}
+.row5
+{
+    display:flex;
+    flex-direction:column-reverse;
+    justify-content:flex-end;
+}
+
+.row6
+{
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-end;
+} */
