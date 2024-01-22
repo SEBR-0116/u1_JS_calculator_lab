@@ -1,5 +1,5 @@
 body {
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -7,7 +7,7 @@ body {
     margin:0;
 }
 .calculator {
-    border:1px solid black;
+    border:1px solid rgb(0, 0, 0);
     border-radius: 5px;
     padding:20px;
     background-color:blue;
@@ -20,11 +20,20 @@ body {
     border-radius: 5px;
     margin-bottom: 10px;
     padding: 10px;
-    background-color:rgb(255, 255, 255);
-    display:flex;
+    background-color:rgba(158, 158, 158, 0.938);
+    display:grid;
     align-items: center;
     justify-content: flex-end;
     font-size: 20px;
+}
+.screen input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    text-align: right;
+    outline: none;
 }
 .calculator_keys {
     display: grid;
