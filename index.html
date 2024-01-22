@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Scientific Calculator</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+        <script defer src="script.js"></script>
+    </head>
+    <body>
+        <h1>Scientific Calculator</h1>
+        <div class="resultDisplay">
+            <p id="previousOperation">0</p>
+            <input type="text" inputmode="decimal" id="result" value="0">
+        </div>
+        <!-- Write your comments here -->
+        <table class="buttons">
+            <tr>
+                <td class="basicOperator" id="ac">AC</td> 
+                <td class="basicOperator" id="changeSign">&#177;</td> 
+                <td class="basicOperator" id="modulo">%</td> 
+                <td class="basicOperator" id="equals">=</td> 
+            </tr>
+            <tr>
+                <td class="number">7</td> 
+                <td class="number">8</td> 
+                <td class="number">9</td> 
+                <td class="basicOperator" id="plus">+</td> 
+            </tr>
+            <tr>
+                <td class="number">4</td> 
+                <td class="number">5</td> 
+                <td class="number">6</td> 
+                <td class="basicOperator" id="minus">-</td> 
+            </tr>
+            <tr>
+                <td class="number">1</td> 
+                <td class="number">2</td> 
+                <td class="number">3</td> 
+                <td class="basicOperator" id="multiply">&#215;</td> 
+            </tr>
+            <tr>
+                <td class="number">0</td> 
+                <td class="number">00</td> 
+                <td class="number" id="dot">.</td> 
+                <td class="basicOperator" id="divide">&#247;</td> 
+            </tr>
+            <tr>
+                <td class="advancedOperator" id="power">^</td> 
+                <td class="advancedOperator" id="squareRoot">&#8730;</td> 
+                <td class="advancedOperator" id="cubicRoot">&#8731;</td> 
+                <td class="advancedOperator" id="pi">&pi;</td> 
+            </tr>
+            <tr>
+                <td class="advancedOperator" id="euler">&#8455;</td> 
+                <td class="advancedOperator" id="sin">sin</td> 
+                <td class="advancedOperator" id="cos">cos</td> 
+                <td class="advancedOperator" id="tan">tan</td> 
+            </tr>
+            <tr>
+                <td class="advancedOperator" id="hyp">hyp</td> 
+                <td class="advancedOperator" id="csc">csc</td> 
+                <td class="advancedOperator" id="sec">sec</td> 
+                <td class="advancedOperator" id="cot">cot</td> 
+            </tr>
+        </table>
+    </body>
+</html>
