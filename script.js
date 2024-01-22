@@ -1,6 +1,7 @@
-const statusDisplay = document.querySelector('.calculation-status')
-const sampleText = () => `Sampel Text`
+const statusDisplay = document.querySelector('.screentext')
+const sampleText = () => `12345`
 
-statusDisplay.innerHTML = startingMessage()
+statusDisplay.innerHTML = sampleText()
 
-console.log('working')
+
+console.log(sampleText)
