@@ -6,7 +6,9 @@
 </head>
 <body>
 <div class=" calculator">
-    <input class= "display-box" type="text" id="result" disabled>
+    <div class="screen">
+        <input type="text" id="result" readonly></div>    
+    <div class="calculator_keys">
     <input type= "clear" value="C" onclick="clearScreen()" id="clear">
     <input type= "button" value="=" onclick="calculate()" id="equal">
     <input type=" button" value="1" onclick="display(1)" id="one">
@@ -24,6 +26,7 @@
     <input type= "button" value="*" onclick="display('*')" id="multiply">
     <input type= "button" value="/" onclick="display('/')" id="divide">
 </div>
-<script src="script.js"></script>
+</div>
+<script defer src="script.js"></script>
 </body>
 </html>
