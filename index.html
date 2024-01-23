@@ -1,39 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
+ 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
   <title>Calculator</title>
+  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <script type="text/javascript" src="script.js"></script>
 </head>
+ 
 <body>
-  <h1 class="page-title">The People's Calculator</h1>
+  <h1>The People's Calculator</h1>
+ <section class="calculator">
+    <form>
+        <input type="text" class="screen">
+    </form>
+    <div class="buttons">
+        <button type="button" class="btn" data-num="7">7</button> 
+        <button type="button" class="btn" data-num="8">8</button>
+        <button type="button" class="btn" data-num="9">9</button>
+        <button type="button" class="btn" data-num="/">/</button>
+        <button type="button" class="btn" data-num="4">4</button>
+        <button type="button" class="btn" data-num="5">5</button>
+        <button type="button" class="btn" data-num="6">6</button>
+        <button type="button" class="btn" data-num="*">*</button>
+        <button type="button" class="btn" data-num="1">1</button>
+        <button type="button" class="btn" data-num="2">2</button>
+        <button type="button" class="btn" data-num="3">3</button>
+        <button type="button" class="btn" data-num="-">-</button>
+        <button type="button" class="btn" data-num="0">0</button>
+        <button type="button" class="btn" data-num="+">+</button>
+        <button type="button" class="btn" data-num="Equal">=</button>
 
-  <div class="content-container">
-    <section>
-      <div class="screen"></div>
-      <div class="screen-text">000000</div>
-      <div class="grid-container">
-      <div class="buttons" id="button0">7</div>
-      <div class="buttons" id="button1">8</div>
-      <div class="buttons" id="button2">9</div>
-      <div class="buttons" id="button-div">÷</div>
-      <div class="buttons" id="button4">4</div>
-      <div class="buttons" id="button5">5</div>
-      <div class="buttons" id="button6">6</div>
-      <div class="buttons" id="button-mult">x</div>
-      <div class="buttons" id="button7">1</div>
-      <div class="buttons" id="button8">2</div>
-      <div class="buttons" id="button9">3</div>
-      <div class="buttons" id="button-sub">-</div>
-      <div class="buttons" id="button0">0</div>
-      <div class="buttons" id="button-point">.</div>
-      <div class="buttons" id="button-plus">+</div>
-      <div class="buttons" id="button-equal">=</div>
+        <button type="'button" class="btn btn-clear" data-num="Clear">Clear</button>
     </div>
-    <button class="clear">Clear</button>
   </section>
-</div>
+<script type="text/javascript" src="script.js"></script>
+ 
 </body>
+ 
 </html>

@@ -1,80 +1,24 @@
-.page-title {
-    color: black;
-    text-align: center;
-    margin-top: 40px;
-}
-
-.content-container {
+body {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-top: 50px; 
+    margin: 0;
+}
+
+.calculator {
+    background-color: rgb(168, 168, 168);
+    border-radius: 10px;
+    width: 500px;
+    height: 700px;
+    box-shadow: 9px 8px 10px 0px rgba(0, 0, 0, .8);
 }
 
 .screen {
     width: 300px;
     height: 100px;
     border-radius: 8px;
-    background: rgb(233, 233, 233);
-    margin-left: 150px;
-    margin-top: 40px;
-    display: flex;
-    justify-content: flex-end;
+    background: rgb(233, 233, 233);  
     align-items: center; 
-    box-shadow: inset 4px 4px 3px 0px rgba(0, 0, 0, 0.8);
-    
-}
-
-.screen-text {
-    margin-right: 70px; 
-    margin-top: -85px;
-    color: rgb(89, 89, 89);
-    font-size: 65px; 
-}
-
-section {
-    background-color: rgb(168, 168, 168);
-    text-align: right;
-    border-radius: 10px;
-    width: 500px;
-    height: 700px;
-    margin: auto;
-    box-shadow: 9px 8px 10px 0px rgba(0, 0, 0, .8);
-}
-
-.grid-container {
-    display: grid;
-    color: white;
-    grid-template-columns: repeat(4, auto);
-    justify-content: center;
-    gap: 15px;
-    padding-top: 30px;
-}
-
-.grid-container > div {
-    background-color: rgb(120, 120, 120);
-    width: 50px;
-    height: 50px;
-    padding: 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 30px;
-    text-align: center;
-    box-shadow: 4px 4px 3px 0px rgba(0, 0, 0, 0.8);
-}
-
-button {
-    margin-bottom: 30px;
-    width: 200px;
-    height: 80px;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-size: 30px;
-    text-align: center;
-    background-color: rgb(243, 61, 61);
-    cursor: pointer;
-    box-shadow: 4px 4px 3px 0px rgba(0, 0, 0, 0.8);
-    margin-right: 50px;
-    margin-top: 20px;
+    box-shadow: inset 4px 4px 3px 0px rgba(0, 0, 0, 0.8); 
 }
