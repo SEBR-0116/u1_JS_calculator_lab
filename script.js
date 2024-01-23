@@ -1,44 +1,66 @@
 
 // GLOBAL VARIABLES
 let result = 0
-let previousResult = ""
 let storedOperation = ""
+let firstOperand = ""
+let binaryOperator = ""
+let secondOperand = ""
 let isSecondOperand = false
+let isBinaryOperation = false
 
 const validCharacters = ['0','1','2','3','4','5','6','7','8','9','0','.']
 
 // HTML Elements
 const resultText = document.querySelector('#result')
-const previousResultText = document.querySelector('#previousOperation')
+const storedOperationText = document.querySelector('#previousOperation')
 const buttons = document.querySelectorAll('td')
 
 // Functions
 
 const resetCalculator = () => {
     resultText.value = 0
-    previousResultText.innerHTML = 0
     result = 0
-    previousResult = 0
     isSecondOperand = false
+    firstOperand = ""
+    secondOperand = ''
+    binaryOperator = ''
+    updateStoredOperation()
 }
 
-const binaryOperation = (binaryOperator, input = 0) => {
-    previousResult = result
-    result = input
-    resultText.value = result
-    storedOperation = `${previousResult} ${binaryOperator} `
-    previousResultText.innerHTML = storedOperation
+const updateStoredOperation = () => {
+    storedOperation = `${firstOperand} ${binaryOperator} ${secondOperand}`
+    storedOperationText.innerHTML = storedOperation
+}
+
+const binaryOperation = (sign) => {
+    binaryOperator = sign
+    result = 0
+    resultText.value = 0
     isSecondOperand = true
+    isBinaryOperation = true
 }
 
 const evaluateOperation = () => {
-    const expression = previousResultText.innerHTML.split(' ')
+    const expression = storedOperationText.innerHTML.split(' ')
     try {
         if (expression.length < 2 || expression.length > 3) {
             throw "Expression does not have a valid amount of operands"
         }
         expression.forEach((operand) => {operand.toString()})
-        console.log(expression)
+
+        switch (binaryOperator) {
+            case '+':
+                result = parseFloat(expression[0]) + parseFloat(expression[2])
+                break;
+            case '-':
+                result = expression[0] - expression[2]
+        }
+
+        isBinaryOperation = false
+        isSecondOperand = false
+
+        resultText.value = result
+
     } catch (e) {
         console.error(e)
         alert(e)
@@ -68,7 +90,8 @@ const inputNumber = () => {
 
     // Updates result and updates the text above result
     result = resultText.value
-    previousResultText.innerHTML = storedOperation + result
+    isSecondOperand ? secondOperand = result : firstOperand = result
+    updateStoredOperation()
 }
 
 // Event Listeners
@@ -83,8 +106,8 @@ buttons.forEach((button) => {
                 case 'ac':
                     resetCalculator()
                     break;
-                case 'plus':
-                    binaryOperation('+', 0)
+                case 'plus' || 'minus' || 'modulo':
+                    binaryOperation(button.innerHTML)
                     break;
                 case 'equals':
                     evaluateOperation()
@@ -93,6 +116,7 @@ buttons.forEach((button) => {
 
             }
         }
+        updateStoredOperation()
     })
 })
 
