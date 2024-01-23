@@ -22,16 +22,18 @@ const resetCalculator = () => {
     isSecondOperand = false
 }
 
-const binaryOperation = (binaryOperator) => {
-    result = 0
+const binaryOperation = (binaryOperator, input = 0) => {
+    previousResult = result
+    result = input
     storedOperation = `${previousResult} ${binaryOperator} ${result}`
+    previousResultText.innerHTML = storedOperation
     isSecondOperand = true
 }
 
 const inputNumber = () => {
     if ([...resultText.value].every(character => validCharacters.some((number) => number == character))) {
         // If a valid character has been typed
-        previousResult = resultText.value
+        storedOperation = resultText.value
     } else {
         resultText.value = resultText.value.slice(0, -1)
     }
@@ -42,17 +44,17 @@ const inputNumber = () => {
         if (resultText.value == '.') {
             resultText.value = '0.'
         }
-        previousResult = resultText.value
+        storedOperation = resultText.value
     }
 
     if (resultText.value.length === 0) {
         resultText.value = "0"
-        previousResult = resultText.value
+        storedOperation = resultText.value
     } 
 
     // Updates result and updates the text above result
     result = resultText.value
-    previousResultText.innerHTML = previousResult
+    previousResultText.innerHTML = storedOperation
 }
 
 // Event Listeners
@@ -69,8 +71,8 @@ buttons.forEach((button) => {
                 case 'ac':
                     resetCalculator()
                     break;
-                case '+':
-                    binaryOperation('+')
+                case 'plus':
+                    binaryOperation('+', 0)
                     
                     break;
 
