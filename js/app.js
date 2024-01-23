@@ -1,44 +1,44 @@
 
 //HTML Variables
 let display = document.querySelector('#displayLower')
-let buttons = document.querySelectorAll('.numbers')
-let operators = document.querySelectorAll('.operation')
+let buttons = document.querySelectorAll('.operation')
+let backspace = document.querySelector('.backspace')
 let clear = document.querySelector('.clear')
 let equal = document.querySelector('.equal')
+let currentValue = 0
 
 
-// buttons.forEach(button => {
-//     button.addEventListener('click',(e) =>
-//     {
-//         let datasetValue = e.target.dataset.num
-//         display.value += datasetValue
+buttons.forEach(button => {
+    button.addEventListener('click',(e) =>
+    {   
+        //if (display.value===0) {display.value=""}
+        let datasetValue = e.target.dataset.num
+        display.value += datasetValue
         
-//     })
-// });
-genaricButtonF(buttons)
+    })
+});
 
-function genaricButtonF(elements){
-    elements.forEach(element => {
-        element.addEventListener('click',(e) =>
-        {
-            let count=0
-           
-            let datasetValue = e.target.dataset.num
-            // if(datasetValue==='.')
-            // {
-               
-            //      count= count+1
+equal.addEventListener('click',(e)=>{
 
-            //     // if(count > 1){
-            //         console.log(`TTTT ${count}}`)
-            //     // }
-                
-            // }
-            display.value += datasetValue
-            
-        })
-    });
-}
+    if(display.value ===''){
+        display.value=''
+    }else {
+        let result = eval(display.value)
+        display.value = result
+    }
+})
+
+
+clear.addEventListener('click',()=>{
+    display.value =''
+})
+
+// backspace.addEventListener('click',() => {
+//     let displayLength = display.value.length
+    
+//     display.value =  display.value.substring(0,1)
+//     console.log(display.value)
+// })
 
 // buttons.forEach(function (button) {
 //     button.addEventListener('click',function (e)  {
