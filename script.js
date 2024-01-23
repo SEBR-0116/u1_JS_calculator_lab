@@ -25,15 +25,31 @@ const resetCalculator = () => {
 const binaryOperation = (binaryOperator, input = 0) => {
     previousResult = result
     result = input
-    storedOperation = `${previousResult} ${binaryOperator} ${result}`
+    resultText.value = result
+    storedOperation = `${previousResult} ${binaryOperator} `
     previousResultText.innerHTML = storedOperation
     isSecondOperand = true
+}
+
+const evaluateOperation = () => {
+    const expression = previousResultText.innerHTML.split(' ')
+    try {
+        if (expression.length < 2 || expression.length > 3) {
+            throw "Expression does not have a valid amount of operands"
+        }
+        expression.forEach((operand) => {operand.toString()})
+        console.log(expression)
+    } catch (e) {
+        console.error(e)
+        alert(e)
+        resetCalculator()
+    }
 }
 
 const inputNumber = () => {
     if ([...resultText.value].every(character => validCharacters.some((number) => number == character))) {
         // If a valid character has been typed
-        storedOperation = resultText.value
+        result = resultText.value
     } else {
         resultText.value = resultText.value.slice(0, -1)
     }
@@ -44,28 +60,24 @@ const inputNumber = () => {
         if (resultText.value == '.') {
             resultText.value = '0.'
         }
-        storedOperation = resultText.value
     }
 
     if (resultText.value.length === 0) {
         resultText.value = "0"
-        storedOperation = resultText.value
     } 
 
     // Updates result and updates the text above result
     result = resultText.value
-    previousResultText.innerHTML = storedOperation
+    previousResultText.innerHTML = storedOperation + result
 }
 
 // Event Listeners
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         if (button.classList.contains('number')) {
-            if (!isSecondOperand) {
-                resultText.value += button.innerHTML
-                previousResultText.innerHTML += button.innerHTML
-                inputNumber()
-            }
+            resultText.value += button.innerHTML
+            //previousResultText.innerHTML += button.innerHTML
+            inputNumber()
         } else if (button.className == 'basicOperator' || button.className == 'advancedOperator') {
             switch (button.id) {
                 case 'ac':
@@ -73,8 +85,11 @@ buttons.forEach((button) => {
                     break;
                 case 'plus':
                     binaryOperation('+', 0)
-                    
                     break;
+                case 'equals':
+                    evaluateOperation()
+                    break;
+
 
             }
         }
