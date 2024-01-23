@@ -11,7 +11,8 @@ body{
     border: 3px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;      
+    text-align: center;  
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);    
 }
 .main_container{
     
@@ -21,13 +22,13 @@ body{
     flex-direction: column;
     text-align: center;
 }
-
+/* 
 table{
     height: 85px;
     width: 350px;
-
+  
     background-color: darkcyan;
-}
+} */
 
 .display{
     border: 2px solid;
@@ -37,7 +38,22 @@ table{
     height: 85px;
     width: 350px;
 }
+.displayScreen{
+    font-size: 35px;
+    font-weight: 100;
+    text-align: right;
+  }
 
+.screen{
+    width:340px;
+    height: 85px;
+    background-color: cadetblue;
+    text-align: right;
+    font-size: 50px;
+    border: none;
+    pointer-events: none;  
+    
+}
 .advance_functions{
     border: 2px solid;
     border-color: #ccc;
@@ -68,6 +84,7 @@ table{
     grid-gap: 10px;
     
   }
+ 
   button {
     padding: 15px;
     font-size: 16px;
@@ -80,12 +97,26 @@ table{
   }
   
   button:hover {
-    background-color: #e0e0e0;
+    background-color: #454040;
   }
   
   #calculate {
     grid-column: span 2;
   }
-  .operation1{
-    background-color: darkcyan;
+  
+  #equal{
+    background-color: #5555ff;
+    color: white;
+    width: 170px;
+  }
+
+  #zero{
+    width: 170px;
+  }
+
+  .buttons.operation1{
+    background-color: cadetblue;
+  }
+  .buttons.operation{
+    background-color: #5555ff;
   }

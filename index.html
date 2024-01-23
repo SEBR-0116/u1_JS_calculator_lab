@@ -11,10 +11,10 @@
     <div class="main_container" id="calculator">
             <!--Display Unit-->
             <div class="display">
-                <table class="displayScreen">
-                    <tr class="row1"><td class="screen display1"></td></tr>
-                    <tr class="row2"><td class="screen display2"></td></tr>
-                </table>
+                <form class="displayScreen">
+                    <!--<input id="displayUpper" class="screen ">-->
+                    <input id="displayLower" class="screen">
+                </form>
             </div>
 
             <!--Extra Functions-->
@@ -25,35 +25,38 @@
             <!--Basic Functions-->
             <div class="basic_functions">
                 <div id="function_Board">
-                    <button class="button operation %" id="1">%</button>
-                        <button class="button operation ce" id="2">CE</button>
-                        <button class="button operation c" id="3">C</button>
-                        <button class="button operation backspace" id="4">&larr;</button>
-                        <button class="button operation 1_/_x" id="5">1/x</button>
-                        <button class="button operation x_paw_2" id="6">x²</button>
-                        <button class="button operation x-Squarr" id="7">√x</button>
-                        <button class="button operation division" id="8">/</button>
-                        <button class="button numbers seven" id="9">7</button>
-                        <button class="button numbers eight" id="10">8</button>
-                        <button class="button numbers nine" id="11">9</button>
-                        <button class="button operation multiply" id="12">*</button>
-                        <button class="button numbers four" id="13">4</button>
-                        <button class="button numbers five" id="14">5</button>
-                        <button class="button numbers six" id="15">6</button>
-                        <button class="button operation minus" id="16">-</button>
-                        <button class="button numbers one" id="17">1</button>
-                        <button class="button numbers two" id="18">2</button>
-                        <button class="button numbers three" id="19">3</button>
-                        <button class="button operation plus" id="20">+</button>
-                        <button class="button operation none" id="21">...</button>
-                        <button class="button numbers zero" id="22">0</button>
-                        <button class="button operation period" id="23">.</button>
-                        <button class="button operation equal" id="24">=</button>
+                    <button class="button operation1 clear" id="clear" data-num="C">C</button>
+                        <!--<button class="button operation1 ce" id="2">CE</button>
+                        <button class="button operation1 c" id="3">C</button>
+                        <button class="button operation1 backspace" id="4">&larr;</button>
+                        <button class="button operation1 1_/_x" id="5">1/x</button>
+                        <button class="button operation1 x_paw_2" id="6">x²</button>
+                        <button class="button operation1 x-Squarr" id="7">√x</button> -->
+                        <button class="button operation division" id="division" data-num="/">/</button>
+                        <button class="button operation multiply" id="multiply" data-num="*">*</button>
+                        <button class="button operation1 backspace" id="backspace" data-num="&larr">&larr;</button>
+                        <button class="button numbers seven" id="seven" data-num="7">7</button>
+                        <button class="button numbers eight" id="eight" data-num="8">8</button>
+                        <button class="button numbers nine" id="nine" data-num="9">9</button>
+                        <button class="button operation minus" id="minus" data-num="-">-</button>                        
+                        <button class="button numbers four" id="four" data-num="4">4</button>
+                        <button class="button numbers five" id="five" data-num="5">5</button>
+                        <button class="button numbers six" id="six" data-num="6">6</button>
+                        <button class="button operation plus" id="plus" data-num="+">+</button>
+                        <button class="button numbers one" id="one" data-num="1">1</button>
+                        <button class="button numbers two" id="two" data-num="2">2</button>
+                        <button class="button numbers three" id="three" data-num="3">3</button>
+                        <button class="button operation1 period" id="period" data-num=".">.</button>
+                        <!--<button class="button operation none" id="21">...</button>-->
+                        <button class="button numbers zero" id="zero" data-num="0">0</button>
+                        
+                        <button class="button operation1 equal" id="equal" data-num="=">=</button>
 
                 </div>
             </div>
 
 
     </div>
+    <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
