@@ -30,12 +30,13 @@ const binaryOperation = (binaryOperator) => {
 
 const inputNumber = () => {
     if ([...resultText.value].every(character => validCharacters.some((number) => number == character))) {
-        //If a valid character has been typed
+        // If a valid character has been typed
         previousResult = resultText.value
     } else {
         resultText.value = resultText.value.slice(0, -1)
     }
     
+    // Adds logic to 0 and dots
     if (resultText.value[0] == "0" && resultText.value.length > 1 && resultText.value[1] != '.') {
         resultText.value = resultText.value.slice(1)
         if (resultText.value == '.') {
@@ -49,6 +50,7 @@ const inputNumber = () => {
         previousResult = resultText.value
     } 
 
+    // Updates result and updates the text above result
     result = resultText.value
     previousResultText.innerHTML = previousResult
 }
@@ -78,26 +80,5 @@ buttons.forEach((button) => {
 })
 
 resultText.addEventListener('input', () => {
-    if ([...resultText.value].every(character => validCharacters.some((number) => number == character))) {
-        //If a valid character has been typed
-        previousResult = resultText.value
-    } else {
-        resultText.value = resultText.value.slice(0, -1)
-    }
-    
-    if (resultText.value[0] == "0" && resultText.value.length > 1 && resultText.value[1] != '.') {
-        resultText.value = resultText.value.slice(1)
-        if (resultText.value == '.') {
-            resultText.value = '0.'
-        }
-        previousResult = resultText.value
-    }
-
-    if (resultText.value.length === 0) {
-        resultText.value = "0"
-        previousResult = resultText.value
-    } 
-
-    result = resultText.value
-    previousResultText.innerHTML = previousResult
+    inputNumber()
 })
