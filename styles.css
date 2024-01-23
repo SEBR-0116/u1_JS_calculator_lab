@@ -77,6 +77,11 @@ td:hover {
     padding: 10px 10px;
 }
 
+#pi, #euler {
+    background-color: rgb(65, 65, 65);
+    color: white;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

@@ -8,7 +8,7 @@ let secondOperand = ""
 let isSecondOperand = false
 let isBinaryOperation = false
 
-const validCharacters = ['0','1','2','3','4','5','6','7','8','9','0','.']
+const validCharacters = ['0','1','2','3','4','5','6','7','8','9','0','.','π','ℇ']
 
 // HTML Elements
 const resultText = document.querySelector('#result')
@@ -21,7 +21,7 @@ const resetCalculator = () => {
     resultText.value = 0
     result = 0
     isSecondOperand = false
-    firstOperand = ""
+    firstOperand = '0'
     secondOperand = ''
     binaryOperator = ''
     updateStoredOperation()
@@ -40,22 +40,55 @@ const binaryOperation = (sign) => {
     isBinaryOperation = true
 }
 
+const parseToNumber = (number) => {
+    if (number === 'π') {
+        return Math.PI
+    } else if (number === 'ℇ') {
+        return Math.E
+    } else {
+        return parseFloat(number)
+    }
+}
+
 const evaluateOperation = () => {
     const expression = storedOperationText.innerHTML.split(' ')
     try {
-        if (expression.length < 2 || expression.length > 3) {
+        if (expression.length > 3) {
             throw "Expression does not have a valid amount of operands"
         }
-        expression.forEach((operand) => {operand.toString()})
 
-        switch (binaryOperator) {
-            case '+':
-                result = parseFloat(expression[0]) + parseFloat(expression[2])
-                break;
-            case '-':
-                result = expression[0] - expression[2]
+        //Turn the expression into an array of strings
+        expression.forEach((operand) => {
+            operand.toString()
+        })
+
+        if (isBinaryOperation) {
+            switch (binaryOperator) {
+                case '+':
+                    result = parseToNumber(expression[0]) + parseToNumber(expression[2])
+                    break;
+                case '-':
+                    result = parseToNumber(expression[0]) - parseToNumber(expression[2])
+                    break;
+                case '×':
+                    result = parseToNumber(expression[0]) * parseToNumber(expression[2])
+                    break;
+                case '÷':
+                    result = parseToNumber(expression[0]) / parseToNumber(expression[2])
+                    break;
+                case '%':
+                    result = parseToNumber(expression[0]) % parseToNumber(expression[2])
+                    break;
+                case '^':
+                    result = parseToNumber(expression[0]) ** parseToNumber(expression[2])
+                    break;
+                default:
+                    throw "An error has occurred. Please try again..."
+                
+            }
         }
-
+        
+        //Resets the necessary Parts of the calculator
         isBinaryOperation = false
         isSecondOperand = false
 
@@ -73,10 +106,11 @@ const inputNumber = () => {
         // If a valid character has been typed
         result = resultText.value
     } else {
+        // Makes sure user does not type invalid characters
         resultText.value = resultText.value.slice(0, -1)
     }
     
-    // Adds logic to 0 and dots
+    // Adds logic for dots
     if (resultText.value[0] == "0" && resultText.value.length > 1 && resultText.value[1] != '.') {
         resultText.value = resultText.value.slice(1)
         if (resultText.value == '.') {
@@ -84,6 +118,7 @@ const inputNumber = () => {
         }
     }
 
+    // Makes sure that at least 0 is always displayed at the calculator
     if (resultText.value.length === 0) {
         resultText.value = "0"
     } 
@@ -98,24 +133,24 @@ const inputNumber = () => {
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         if (button.classList.contains('number')) {
+            //What the computer will do when a number is typed
             resultText.value += button.innerHTML
-            //previousResultText.innerHTML += button.innerHTML
             inputNumber()
         } else if (button.className == 'basicOperator' || button.className == 'advancedOperator') {
-            switch (button.id) {
-                case 'ac':
-                    resetCalculator()
-                    break;
-                case 'plus' || 'minus' || 'modulo':
-                    binaryOperation(button.innerHTML)
-                    break;
-                case 'equals':
-                    evaluateOperation()
-                    break;
+            console.log(button.id)
 
-
+            // Adds logic for basic and advanced operators
+            if (['plus','minus','divide','multiply','power','modulo'].some(id => id === button.id)) {
+                binaryOperation(button.innerHTML)
+            } else if (button.id === 'ac') {
+                resetCalculator()
+            } else if (button.id === 'equals') {
+                evaluateOperation()
             }
+
         }
+
+        //Updates operation
         updateStoredOperation()
     })
 })
