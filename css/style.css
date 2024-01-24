@@ -35,7 +35,7 @@ table{
     border-color: cadetblue;
     background-color: cadetblue;
     border-radius: 5px;
-    height: 85px;
+    height: 135px;
     width: 350px;
 }
 .displayScreen{
@@ -54,6 +54,22 @@ table{
     pointer-events: none;  
     
 }
+#displayUpper{
+  border: 1px solid;
+  border-radius: 8px;
+  border-style: inset;
+  height: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  font-display: initial;
+  
+}
+#displayLower{
+  border: 1px solid;
+  border-radius: 8px;
+  border-style: inset;
+}
+
 .advance_functions{
     border: 2px solid;
     border-color: #ccc;
