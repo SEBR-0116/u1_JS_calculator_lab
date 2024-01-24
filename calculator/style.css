@@ -10,12 +10,13 @@
 #calc-display-contain {
     width: 90%;
     margin: 10px auto 5px;
+    background-color: #eee;
 }
 #calc-display-contain > #calc-display {
     text-align: right;
     padding: 0 5px 5px;
     font-size: 40px;
-    color: #ddd;
+    color: #355;
 }
 #calc-display-contain span {
     color: #4f5359;

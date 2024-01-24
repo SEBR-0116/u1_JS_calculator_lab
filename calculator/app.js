@@ -15,6 +15,9 @@ const btn8 = document.querySelector('#btn-8');
 const btn9 = document.querySelector('#btn-9');
 const btn0 = document.querySelector('#btn-0');
 
+const runningTotalDisplay = document.querySelector('#prev-calc-total');
+const runningOperatorDisplay = document.querySelector('#operator-selected');
+
 const reverseBtn = document.querySelector('#btn-reverse-sign');
 const decimalBtn = document.querySelector('#btn-decimal');
 
@@ -77,33 +80,142 @@ btn0.addEventListener('click', () => {
     tempNum = btn0.getAttribute('data-value');
     getNumber();
 });
-let numSetInString = "01";
-function getNumber() {
-    //numSet.push(tempNum.toString());
-    numSet.push(tempNum);
 
-    console.log(numSet);
-    numSet.forEach(num => {
-        // numSetInString.charAt[numSetInString.length-1]
-        //console.log(numSetInString.charAt[numSetInString.length-1])
-
-    });
-    numDisplay.innerHTML = numSetInString;
-//console.log(numSet);
-//numDisplay.innerHTML = btn1.getAttribute('data-value');
-}
-
-//if you click on an operator after a number, then get a tally of initial + recent number operated
-
-addBtn.addEventListener('click', () => {
-    //1 - merge numSet #'s into a set, and turn into one number
-    //1, A - if running total already exists, where numSet has not yet been included,
-    //then run the "calculate function" and have operator be +
-    //1, B - otherwise, store inside of a running total
+decimalBtn.addEventListener('click', () => {
+    if (numSet.includes('.')) {
+        console.log('no action');
+    } else {
+        tempNum = '.';
+        getNumber();
+    }
 });
+
+function getNumber() {
+    numSet.push(tempNum);
+    numDisplay.innerHTML = numSet.join("");
+}
+function updateRunningTotal() {
+    //update running total count
+    //in other function/based on operator selected, update the symbol + math
+    if (runningTotal == 0) {
+        runningTotal = parseFloat(runningTotal);
+        runningTotal = parseFloat(numSet.join(""));
+
+    } else if (runningTotal > 0 || runningTotal < 0) {
+        runningTotal = parseFloat(runningTotal);
+        runningTotal += parseFloat(numSet.join(""));
+        //code right above needs to be modified based on operator selected...
+        //numDisplay stays the same until new number is selected...which resets numSet + numDisplay
+    } else {
+        console.log('Check your code! Error updating running total');
+    }
+    console.log(runningTotal);
+}
+//update inner HTML at top left of display
+function updateRunningTotalDisplay() {
+    runningTotalDisplay.innerHTML = runningTotal;
+}
+//if you click on an operator after a number, then get a tally of initial + recent number operated
+//Clicking on Operators
+addBtn.addEventListener('click', () => {
+    updateRunningTotal();
+    if (runningTotal > 0 || runningTotal < 0) {
+        updateRunningTotalDisplay();
+        runningOperatorDisplay.innerHTML = '&plus;';
+        //need to set a property of addition to determine how next set of numbers will be treated...
+    } else {
+        console.log('No action until a number is selected');
+    }
+
+});
+
+subtractBtn.addEventListener('click', () => {
+    updateRunningTotal();
+    if (runningTotal > 0 || runningTotal < 0) {
+        updateRunningTotalDisplay();
+        runningOperatorDisplay.innerHTML = '&minus;';
+        //need to set a property of subtraction to determine how next set of numbers will be treated...
+    } else {
+        console.log('No action until a number is selected');
+    }
+})
+multiplyBtn.addEventListener('click', () => {
+    updateRunningTotal();
+    if (runningTotal > 0 || runningTotal < 0) {
+        updateRunningTotalDisplay();
+        runningOperatorDisplay.innerHTML = '&times;';
+        //need to set a property of multiplication to determine how next set of numbers will be treated...
+    } else {
+        console.log('No action until a number is selected');
+    }
+})
+divideBtn.addEventListener('click', () => {
+    updateRunningTotal();
+    if (runningTotal > 0 || runningTotal < 0) {
+        updateRunningTotalDisplay();
+        runningOperatorDisplay.innerHTML = '&divide;';
+        //need to set a property of division to determine how next set of numbers will be treated...
+    } else {
+        console.log('No action until a number is selected');
+    }
+})
+calcBtn.addEventListener('click', () => {
+    updateRunningTotal();
+    if (runningTotal > 0 || runningTotal < 0) {
+        updateRunningTotalDisplay();
+        runningOperatorDisplay.innerHTML = '&#61;';
+        //need to set a property of division to determine how next set of numbers will be treated...
+    } else {
+        console.log('No action until a number is selected');
+    }
+})
+
+reverseBtn.addEventListener('click', () => {
+    // //multiply by *-1
+
+    // runningTotal = parseFloat(runningTotal);
+    // runningTotal = parseFloat(numSet.join(""));
+
+    runningTotal = parseFloat(runningTotal);
+    runningTotal = parseFloat(numSet.join(""));
+
+    if (runningTotal == 0 || runningTotal > 0 || runningTotal < 0) {
+        if (runningTotal > 0) {
+            runningTotal *= -1;
+            console.log(runningTotal);
+            numDisplay.innerHTML = runningTotal;
+            numSet.unshift('-'); //add '-' to array
+            //console.log(`Numset is now ${numSet}`);
+
+        } else if (runningTotal < 0) {
+            runningTotal *= -1;
+            console.log(runningTotal);
+            //console.log(`${runningTotal} is a negative`);
+            numDisplay.innerHTML = runningTotal;
+            numSet.shift(); //removing '-' from array
+            //console.log(`Numset is now ${numSet}`);
+
+        } else {
+            console.log('No action until we have a number selected');
+        }
+    }
+    else {
+        console.log('Do nothing, yet. Only applied to numbers greater or less than 0');
+    }
+})
 
 clearAllBtn.addEventListener('click', () => {
-    //clear running total --> set to 0
-    //clear operator selection
-    //set numDisplay to 0 
+    //set numDisplay to 0
+    //clear array for numSet
+    //set running total to 0
+    //set displayed running total to 0
+    //hide displayed running total & operator
+    numSet = [];
+    console.log(numSet);
+    runningTotal = 0;
+    numDisplay.innerHTML = runningTotal;
 });
+
+
+//referenced this page to help with reading decimal #'s
+//https://stackoverflow.com/questions/28894971/problems-with-javascript-parseint-decimal-string
