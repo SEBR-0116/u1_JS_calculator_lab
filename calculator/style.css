@@ -1,20 +1,30 @@
+body {
+    background: linear-gradient(white, gray, white);
+    background-repeat: no-repeat;
+    min-height:900px;
+}
 
 #calc-contain, #calc-display-contain, .calc-btn {
     border: solid 1px #000;
     font-size: 25px;
+    font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
 }
 #calc-contain {
     max-width: 600px;
     margin: 100px auto 0;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 5px 10px 30px #ddd;
+    background-color: #818385;
 }
 #calc-display-contain {
     width: 90%;
-    margin: 10px auto 5px;
+    margin: 30px auto 5px;
     background-color: #eee;
 }
 #calc-display-contain > #calc-display {
     text-align: right;
-    padding: 0 5px 5px;
+    padding: 0 10px 7px;
     font-size: 40px;
     color: #355;
 }
@@ -26,26 +36,66 @@
     /* opacity: 0; */
 }
 .calc-btn {
-    padding: 2px;
     text-align: center;
     border-radius: 3px;
-    margin:2px;
-
+    margin:5px 2px;
 }
 #branding {
     font-size: 15px;
     font-style: italic;
+    margin: 10px 30px 0;
+    color: #fff;
 }
-.btn-left, .btn-right, .btn-right-top, .btn-right-bottom {
+#btn-clear {
+    width: 45%;
+    position: absolute;
+    right: 27px;
+    top: 135px;
+    height: 35px;
+    padding: 10px 0 7px;
+    font-weight: 600;
+    background-color: #e0a965;
+}
+#calc-lower-btn-contain { 
     display: flex;
-    flex-wrap: wrap;
+    margin: 55px 10px 35px;
 }
 .btn-left {
-    width: 65%;
+    display: flex;
+    width: 60%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-left: 11px;
     }
 .btn-left div {
-    width: 25%;
+    width: 28%;
+    height: 45px;
+    padding: 9px 0 0;
+    margin-top: 10px;
+    font-weight: 600;
+    background-color: #ded3c5;
 }
 .btn-right {
+    width: 34%;
+    padding-left: 5px;
+}
+.btn-right-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.btn-right-top div {
     width: 32%;
+    margin-top: 10px;
+    padding: 20px 10px 10px;
+    height: 55px;
+    background-color: #e0a965;
+    font-weight: 600;
+}
+.btn-right-bottom div {
+    height: 45px;
+    padding: 15px 10px 10px;
+    background-color: #94bde3;
+    font-weight: 600;
 }
