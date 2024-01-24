@@ -1,0 +1,59 @@
+.frame {
+    background-color: hotpink;
+    width: 75%;
+    border-radius: 40px;
+    margin: auto;
+    padding-top: 20px;
+    max-width: 450px;
+}
+
+.display {
+    background-color: lightblue;
+    width: 85%;
+    margin: auto;
+    height: 50px;
+    padding: 10px;
+    font-size: 50px;
+    font-family: 'Lobster';
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 20px;
+}
+
+.buttons {
+    max-width: 90%;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+button {
+    flex-basis: 20%;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 10px;
+    font-size: 40px;
+    font-family: 'Lobster';
+    border: none;
+    border-radius: 50%;
+}
+
+.btn_Number {
+    background-color: white;
+    color: hotpink;
+}
+.btn_Option, .btn_Clear {
+    background-color: lavender;
+    color: blueviolet;
+}
+.btn_Calculate, .btn_Equals {
+    background-color: pink;
+    color: white;
+}
+
+.btn_Clear, .btn_Equals {
+    border-radius: 20px;
+    width: 150%;
+}
