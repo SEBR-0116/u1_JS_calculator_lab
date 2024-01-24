@@ -3,7 +3,9 @@ body{
     font-family: 'Courier New', Courier, monospace;
     font-size: medium;
 }
-
+.new{
+    background: #8888ff;
+}
 #calculator{
 
     width: 350px;

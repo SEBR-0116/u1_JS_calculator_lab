@@ -1,23 +1,190 @@
 
 //HTML Variables
-let display = document.querySelector('#displayLower')
-let displayUpper = document.querySelector('#displayUpper')
-let buttons = document.querySelectorAll('.operation')
+let displayLower = document.querySelector('#displayLower')
+//let displayUpper = document.querySelector('#displayUpper')
+
 let backspace = document.querySelector('.backspace')
 let clear = document.querySelector('.clear')
 let equal = document.querySelector('.equal')
+let period = document.querySelector('#period')
 
 //HTML Variables - User for Type 2 method
 let numbers = document.querySelectorAll('.btn-num')
 let oprators = document.querySelectorAll('.btn-opr')
 
+operationStringArray = []
 
-//Memory Variable
-let currentEntry =''
+let presentValue =''
+let presentOperator =''
 
-let currentOperator =''
-let result = 0
+let resultValue=0
 
+//////////////////////////////Event Listerner for Number
+numbers.forEach(number => {
+    number.addEventListener('click',(e) =>
+    {   
+
+         if(displayLower.value.length > 10 ){
+
+            //change font-sixe if exceeeded the screen size
+            displayLower.style.fontSize = '45px'
+
+        } else if (displayLower.value.length <= 16 ){
+            
+           let cEntry = e.target.dataset.num
+
+            // if(displayLower == '0'){
+            //     displayLower=''}
+            
+                presentValue += cEntry
+            displayLower.value = presentValue
+
+        }
+   
+    })
+});
+
+
+//////////////////////////////Event Listerner for operator
+oprators.forEach(operator => {
+    operator.addEventListener('click', (e)=>{
+        
+            presentOperator  =e.target.dataset.num
+
+        
+      
+       
+       switch (presentOperator){
+            case '+':
+               
+                pushNum_OprArray(presentValue,presentOperator)
+                
+            break
+
+            case '-':
+          
+            pushNum_OprArray(presentValue,presentOperator)
+            break
+
+            case '*':
+          
+            pushNum_OprArray(presentValue,presentOperator)
+            break
+
+            case '/':
+          
+            pushNum_OprArray(presentValue,presentOperator)
+            break
+
+            case '=':
+            operationStringArray.push(presentValue)
+            resultValue = eval(operationStringArray.join(''))
+            displayLower.value = resultValue
+            operationStringArray=[]
+            break
+
+            default:
+       }
+    })
+
+});
+
+
+
+function pushNum_OprArray(pValue,pOper){
+
+          
+    operationStringArray.push(pValue)
+    operationStringArray.push(pOper)
+    console.log(" Array >> "+operationStringArray)
+    displayUpper.value = operationStringArray.join('')
+    presentValue =''
+    presentOperator = ''
+    displayLower.value=''
+            
+}
+
+
+
+
+//\\\\\\\\\\\\\\\\\\\\
+
+// function runLoopToCalculate(arrayList){
+
+//     for (let i=0;i<arrayList.length;i+=2){ //Loop for NUmbers
+//        // for (let j=1;j<arrayList.length-2;i+=2){ //Loop for Operators
+
+//             //Adding operatio - +
+//            if(arrayList[i+1]==='+')
+//                 {
+//                     console.log(` arrayList >> index ${i} of value is  ${arrayList[i]}`)
+//                     resultValue = parseFloat(resultValue) + parseFloat(arrayList[i])
+//                 }
+//             else if (arrayList[i+1]==='-'){
+//                 if(resultValue > arrayList[i]){
+//                     resultValue = parseFloat(resultValue) - parseFloat(arrayList[i])
+//                 }else {
+//                     resultValue = (parseFloat(arrayList[i]) - parseFloat(resultValue))*-1
+//                 }
+//                   console.log(`Result during - >>  ${resultValue}`)
+                
+
+//             }
+//     //}
+
+//     }
+
+// }
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////Event Listerner for removing last element
+backspace.addEventListener('click',(e)=>{
+    
+    let displayValueLength = presentValue.length
+
+    if (displayValueLength > 0) {
+        // Remove the last character
+        presentValue = presentValue.slice(0, displayValueLength - 1);
+    }
+    displayLower.value = presentValue
+    //displayUpper.value = currentEntry
+
+})
+
+period.addEventListener('click',(e)=>{
+    if(!presentValue.includes('.'))
+        {presentValue += '.'}
+    displayLower.value = presentValue
+})
+
+// //////////////////////////////Event Listerner for "="
+
+
+//////////////////////////////Event Listerner for Screen cleaning
+clear.addEventListener('click',()=>{
+    
+    displayLower.value =''
+    displayUpper.value=''
+    presentValue =''
+    presentOperator=''
+    OperationStringArray=[]
+    resultValue=0
+
+})
+
+
+
+
+
+////======================================Type 2 method  Without using eval() library function
 
 
 // buttons.forEach(button => {
@@ -40,110 +207,54 @@ let result = 0
 //     }
 // })
 
+//\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-////======================================Type 2 method  Without using eval() library function
 
-numbers.forEach(number => {
-    number.addEventListener('click',(e) =>
-    {   
-        
-        if(display.value.length > 10 ){
-            //change font-sixe if exceeeded the screen size
-            display.style.fontSize = '45px'
-        } else if (display.value.length <= 16 ){
+// //////////////////////////////Event Listerner for Number
+// numbers.forEach(number => {
+//     number.addEventListener('click',(e) =>
+//     {   
+
+//          if(displayLower.value.length > 10 ){
+
+//             //change font-sixe if exceeeded the screen size
+//             displayLower.style.fontSize = '45px'
+
+//         } else if (displayLower.value.length <= 16 ){
             
-            cEntry = e.target.dataset.num
-            //console.log(`current entey ${cEntry}`)
-            currentEntry += cEntry
-            //display.value += cEntry
-            displayUpper.value += currentEntry
-            //console.log(`display ${display.value}`)
-            display.value = currentEntry
-        }
+//            let cEntry = e.target.dataset.num
+
+//             if(displayLower == '0'){
+//                 displayLower=''}
+            
+//             currentEntry += cEntry
+//             displayLower.value = currentEntry
+
+//         }
    
-    })
-});
+//     })
+// });
 
-oprators.forEach(operator => {
-    operator.addEventListener('click', (e)=>{
+// //////////////////////////////Event Listerner for operator
+// oprators.forEach(operator => {
+//     operator.addEventListener('click', (e)=>{
+           
+//        let oprFunction =e.target.dataset.num
+//         // secondEntry= parseFloat(currentEntry)
+//         // currentEntry=''
 
-       operatorFunction(e.target.dataset.num)
-    })
-}
+//        switch (oprFunction){
+//         case '+':
+//           //  console.log(`Working ${oprFunction}`)
+//             result += parseFloat(currentEntry)
+//             displayLower.value = result.toString()
+//             break
 
-);
+//         default:
+//             //displayLower.value = result
 
-equal.addEventListener('click',(e)=>{
-    calculation(result,currentOperator)
-})
+//     }
+//     })
+// }
 
-
-clear.addEventListener('click',()=>{
-    display.value =''
-    displayUpper.value=''
-})
-
-function numberFuntion(number )  {
-    currentEntry += number
-    updateScreen()
-}
-
-function operatorFunction(operator){
-
-     //console.log("b_o- " + operator)
-     currentOperator = operator
-
-    // if (result!==0){
-    // //console.log("current op  "+currentOperator)
-    // //console.log("cE- "+currentEntry)
-    // result = parseFloat(currentEntry)
-    // //console.log("r- "+result)
-    // displayUpper.value = `${result}${currentOperator}`
-
-    calculation(currentEntry,currentOperator)
-    // }
-    //console.log('result is zero')
-    result = parseFloat(currentEntry)
-    //console.log("r- "+result)
-    displayUpper.value = `${result}${currentOperator}`
-   
-    currentEntry=''
-    
-    //clearInput()
-}
-
-function clearScreen(){
-    currentEntry =''
-    currentOperator =''
-    result = 0
-    updateScreen()
-}
-
-function clearInput(){
-    currentEntry =''
-   // display.value =''
-}
-
-function updateScreen(){
-    //display.value = currentEntry > 0 ? currentEntry : result
-    display.value = currentEntry || result
-}
-
-function calculation(cEntry,cOper){
-    console.log(`currentEntry Before call - ${cEntry}`)
-    const secondEntry = parseFloat(cEntry)
-    console.log("currentEntry"+ secondEntry)
-    switch (cOper){
-        case '+':
-            console.log("Result before "+ cOper)
-            result += parseFloat(secondEntry)
-            display.value = result
-
-            console.log("result  after "+ result)
-            break;
-
-        default:
-    }
-
-
-}
+// );
