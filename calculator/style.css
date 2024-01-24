@@ -1,57 +1,56 @@
-.button, #GA-symbol {
-    display: flex;
-    border-radius: 50px;
-    background: black;
-    height: 80px;
-    width: 80px;
-    justify-content: center;
-    color: white;
-    align-items: center;
+.button,
+#GA-symbol {
+  display: flex;
+  border-radius: 50px;
+  background: black;
+  height: 80px;
+  width: 80px;
+  justify-content: center;
+  color: white;
+  align-items: center;
 }
 
-.header{
-    display: grid;
-    justify-content: center;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto;
+.header {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
 }
 
 .operations {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: auto auto auto auto;
-    justify-content: center;
-    align-items: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto auto auto auto;
+  justify-content: center;
+  align-items: center;
 }
 
-.button{
-    margin: 10px 10px 10px 10px;
-    background-color: red;
+.button {
+  margin: 10px 10px 10px 10px;
+  background-color: red;
 }
 
 #GA-symbol {
-    background-color: red;
-    margin-top: 5px;
+  background-color: red;
+  margin-top: 5px;
 }
 
-.calc-body{
-    background-color: black;
-    width: 500px;
-    /* margin-left: 500px;
-    margin-right: 500px; */
-    margin: 0 auto;
+.calc-body {
+  background-color: black;
+  width: 500px;
+  margin: 0 auto;
 }
 
 #output {
-    display: grid;
-    border-radius: 25px;
-    background-color: grey;
-    color: white;
-    width: 300px;
-    margin-top: 10px;
-    justify-content: right;
-    align-items: center;
-    padding-right: 10px;
-    margin-left: 10px;
-font-size: 50px;
+  display: grid;
+  border-radius: 25px;
+  background-color: grey;
+  color: white;
+  width: 300px;
+  margin-top: 10px;
+  justify-content: right;
+  align-items: center;
+  padding-right: 10px;
+  margin-left: 10px;
+  font-size: 50px;
 }
