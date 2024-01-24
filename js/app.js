@@ -1,7 +1,7 @@
 
 //HTML Variables
 let displayLower = document.querySelector('#displayLower')
-//let displayUpper = document.querySelector('#displayUpper')
+let displayUpper = document.querySelector('#displayUpper')
 
 let backspace = document.querySelector('.backspace')
 let clear = document.querySelector('.clear')
@@ -51,8 +51,8 @@ oprators.forEach(operator => {
         
             presentOperator  =e.target.dataset.num
 
-        
-      
+        if(presentValue !== '' && presentOperator !== '')
+      {
        
        switch (presentOperator){
             case '+':
@@ -77,14 +77,19 @@ oprators.forEach(operator => {
             break
 
             case '=':
+                try{
             operationStringArray.push(presentValue)
             resultValue = eval(operationStringArray.join(''))
             displayLower.value = resultValue
             operationStringArray=[]
+                }catch(errer){
+                        displayLower.value ="Error"
+                }
             break
 
             default:
        }
+    }
     })
 
 });
