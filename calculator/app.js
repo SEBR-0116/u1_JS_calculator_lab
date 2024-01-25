@@ -130,6 +130,7 @@ btn0.addEventListener('click', () => {
     }
     getNumber();
 });
+
 decimalBtn.addEventListener('click', () => {
     if (numSet.includes('.')) {
         console.log('no action');
@@ -143,6 +144,7 @@ decimalBtn.addEventListener('click', () => {
         getNumber();
     }
 });
+
 function getNumber() {
     numSet.push(tempNum);
     numDisplay.innerHTML = numSet.join("");
@@ -218,41 +220,38 @@ function updateRunningTotalDisplay() {
 //Clicking on Operators
 addBtn.addEventListener('click', () => {
     runningOperatorDisplay.innerHTML = '&plus;';
-    runningOperatorDisplay.setAttribute('data-operator','&plus;');
-    updateRunningTotal();
     
+    updateRunningTotal();
     if (prevRunningTotal > 0 || prevRunningTotal < 0) {
         updateRunningTotalDisplay();
     } else {
         console.log('No action until a number is selected');
     }
+    runningOperatorDisplay.setAttribute('data-operator','&plus;');
 });
 
 subtractBtn.addEventListener('click', () => {
     runningOperatorDisplay.innerHTML = '&minus;';
-    runningOperatorDisplay.setAttribute('data-operator','&minus;')
     updateRunningTotal();
-    
     if (prevRunningTotal > 0 || prevRunningTotal < 0) {
         updateRunningTotalDisplay();
     } else {
         console.log('No action until a number is selected');
     }
+    runningOperatorDisplay.setAttribute('data-operator','&minus;');
 })
 multiplyBtn.addEventListener('click', () => {
     runningOperatorDisplay.innerHTML = '&times;';
-    runningOperatorDisplay.setAttribute('data-operator','&times;')
     updateRunningTotal();
-
     if (prevRunningTotal > 0 || prevRunningTotal < 0) {
         updateRunningTotalDisplay();
     } else {
         console.log('No action until a number is selected');
     }
+    runningOperatorDisplay.setAttribute('data-operator','&times;');
 })
 divideBtn.addEventListener('click', () => {
     runningOperatorDisplay.innerHTML = '&divide;';
-    runningOperatorDisplay.setAttribute('data-operator','&divide;')
     updateRunningTotal();
 
     if (prevRunningTotal > 0 || prevRunningTotal < 0) {
@@ -260,6 +259,7 @@ divideBtn.addEventListener('click', () => {
     } else {
         console.log('No action until a number is selected');
     }
+    runningOperatorDisplay.setAttribute('data-operator','&divide;');
 })
 calcBtn.addEventListener('click', () => {
     //fix code!
@@ -267,12 +267,10 @@ calcBtn.addEventListener('click', () => {
     updateRunningTotal();
     if (prevRunningTotal > 0 || prevRunningTotal < 0) {
         updateRunningTotalDisplay();
-
     } else {
         console.log('No action until a number is selected');
     }
 })
-
 reverseBtn.addEventListener('click', () => {
     // //multiply by *-1
     runningTotal = parseFloat(runningTotal);
