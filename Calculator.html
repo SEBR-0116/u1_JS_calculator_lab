@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="CalculatorStyle.css">
+</head>
+<body>
+
+<table id="calculator">
+    <tr>
+        <td colspan="3">
+            <input type="text" id="result" readonly>
+        </td>
+        <td><input type="button" value="/" onclick="numKeypad('/')"></td>
+    </tr>
+
+    <tr>
+        <td><input type="button" value="1" onclick="numKeypad('1')"></td>
+        <td><input type="button" value="2" onclick="numKeypad('2')"></td>
+        <td><input type="button" value="3" onclick="numKeypad('3')"></td>
+        <td><input type="button" value="*" onclick="numKeypad('*')"></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="4" onclick="numKeypad('4')"></td>
+        <td><input type="button" value="5" onclick="numKeypad('5')"></td>
+        <td><input type="button" value="6" onclick="numKeypad('6')"></td>
+        <td><input type="button" value="-" onclick="numKeypad('-')"></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="7" onclick="numKeypad('7')"></td>
+        <td><input type="button" value="8" onclick="numKeypad('8')"></td>
+        <td><input type="button" value="9" onclick="numKeypad('9')"></td>
+        <td><input type="button" value="+" onclick="numKeypad('+')"></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="0" onclick="numKeypad('0')"></td>
+        <td><input type="button" value="." onclick="numKeypad('.')"></td>
+        <td><input type="button" value="=" onclick="calculateSum()"></td>
+        <td><input type="button" value="C" onclick="clearScreen()"></td>
+    </tr>
+</table>
+
+<script type="text/javascript" src="Calculator.js"></script>
+
+</body>
+</html>

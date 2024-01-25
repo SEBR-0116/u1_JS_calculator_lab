@@ -1,0 +1,43 @@
+table{
+    border:5px solid rgb(12, 36, 33);
+    margin-top:350px ;
+    margin-left: 825px;
+    margin-right: auto;
+    color: black; 
+}
+#result{
+width: 260px;
+height: 70px;
+font-size: 30px;
+
+}
+body {
+    background-image:url(https://wallpapercave.com/wp/wp12800660.jpg);
+    background-color: black;
+    background-position:top;
+    background-size: 1680px;
+    flex-wrap: wrap;
+    
+}
+
+input[type="button"] {
+    width: 85%;
+    font-size:32px;
+    padding: 20px 30px;
+    
+    
+}
+@media screen and (max-width:460px) {
+   body{ 
+    background-image:url(https://images.hdqwalls.com/download/cyberpunk-edgerunners-netflix-5k-2l-1280x2120.jpg);
+    }
+    table{
+        margin: auto;
+        position: relative;
+        top: 180px;
+    }
+   #result{
+    width: 260px;
+    height: 70px;
+   }
+}
