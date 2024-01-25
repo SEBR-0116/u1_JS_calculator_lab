@@ -37,6 +37,20 @@ const updateStoredOperation = () => {
         storedOperationText.innerHTML = storedOperation
     }
 }
+
+const changeSign = () => {
+    if (result != 0) {
+        result *= -1
+        resultText.value = result
+        if (isBinaryOperation && isSecondOperand) {
+            secondOperand *= -1
+        } else {
+            firstOperand *= -1
+        }
+        updateStoredOperation()
+    }
+}
+
 const unaryOperation = (sign) => {
     unaryOperator = sign
     isUnaryOperation = true
@@ -219,6 +233,8 @@ buttons.forEach((button) => {
                 } else {
                     unaryOperation(button.innerHTML)
                 }
+            } else if (button.id === 'changeSign') {
+                changeSign()
             } else if (button.id === 'ac') {
                 resetCalculator()
             } else if (button.id === 'equals') {
