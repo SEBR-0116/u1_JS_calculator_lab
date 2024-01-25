@@ -28,12 +28,12 @@ body {
     font-size: 40px;
     color: #355;
 }
-#calc-display-contain span {
+#prev-calc-total, #operator-selected {
     color: #4f5359;
     font-size: 14px;
     display: inline-block;
     padding: 0 5px;
-    /* opacity: 0; */
+    opacity: 0;
 }
 .calc-btn {
     text-align: center;
@@ -99,3 +99,4 @@ body {
     background-color: #94bde3;
     font-weight: 600;
 }
+
