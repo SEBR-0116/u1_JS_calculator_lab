@@ -106,6 +106,29 @@ const evaluateOperation = () => {
                 case '√':
                     result = Math.sqrt(parseToNumber(expression[1]))
                     break;
+                case '∛': 
+                    result = Math.cbrt(parseToNumber(expression[1]))
+                    break;
+                case 'sin': 
+                    result = Math.sin(parseToNumber(expression[1]))
+                    break;
+                case 'cos': 
+                    result = Math.cos(parseToNumber(expression[1]))
+                    break;
+                case 'tan':
+                    result = Math.tan(parseToNumber(expression[1]))
+                    break;
+                case 'csc':
+                    result = 1 / Math.sin(parseToNumber(expression[1]))
+                    break;
+                case 'sec':
+                    result = 1/ Math.cos(parseToNumber(expression[1]))
+                    break;
+                case 'cot':
+                    result = 1 / Math.tan(parseToNumber(expression[1]))
+                    break;
+                default:
+                    throw 'An error has occurred. Please try again...'
             }
         }
         
