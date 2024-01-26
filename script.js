@@ -1,21 +1,5 @@
 
 
-// document.addEventListener
-
-// const display= document.getElementById("display")
-
-// function appendToDisplay(input) {
-//   display.value += input;
-// }
-// function clearDisplay() {
-//   display.value = "";
-// }
-
-// function calculate() {
-//   display.value = eval(display.value)
-// }
-
-
 document.addEventListener('click', function () {
     const display = document.getElementById('display')
     const keys = document.getElementById('keys')
