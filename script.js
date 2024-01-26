@@ -34,6 +34,7 @@ let indexOperator = null
 let displayString = null
 let currentButton = null
 let previousButton = []
+let plusminusCheck = false
 
 //functions
 function gettingNumbers()
@@ -43,7 +44,14 @@ function gettingNumbers()
             let number1 = getNumberButtons[indexNum].dataset.value
             firstInput.push(number1)
             displayString = firstInput.join('')
-            getDisplay.innerHTML = displayString
+            if(plusminusCheck==false)
+            {
+                getDisplay.innerHTML = displayString
+            }
+            else{
+                displayString = `${`-`}${displayString}`
+                getDisplay.innerHTML = displayString
+            }
             indexNum= null
         }
     else{
@@ -80,8 +88,6 @@ function gettingoperators()
             operator[0]=operator1     
 }
 
-
-
 //Adding event listners
 
 for (let i=0;i< getNumberButtons.length;i++)
@@ -98,29 +104,36 @@ for (let j=0;j< getOperatorButtons.length;j++)
 
         indexOperator = j
         gettingoperators() 
+        plusminusCheck = false
     }
     )
 }
 
 getButton_ac.addEventListener('click',()=>{
     getDisplay.innerHTML = `0` 
+    firstInput = []
+    secondInput = []
+    operator = []
 })
 
 getButton_plusminus.addEventListener('click',()=>{
-    getDisplay.innerHTML =  ${`-`}
+
+    plusminusCheck =true
+    displayString = `${`-`}${displayString}`
+    getDisplay.innerHTML =  displayString
 })
 
-// switch(elementId){
-//     case plus:
-//         addNumbers()
-//     case minus:
-//         subtractNumbers()
-//     case multiply:
-//         multiplyNumbers()
-//     case divide:
-//         divideNumbers()
-//     case modulus:
-//         modulusOfNumbers()
-//     case ac:
-//         cleardisplay()
-// }
+switch(elementId){
+    case plus:
+        addNumbers()
+    case minus:
+        subtractNumbers()
+    case multiply:
+        multiplyNumbers()
+    case divide:
+        divideNumbers()
+    case modulus:
+        modulusOfNumbers()
+    case ac:
+        cleardisplay()
+}
