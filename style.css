@@ -1,3 +1,20 @@
-.inputs {
-    
+.container {
+    position: absolute;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: repeat(5, 50px);
+    grid-template-areas: 
+  "header header header header" 
+  "main main main main" 
+  "main main main main" 
+  "main main main main" 
+  "main main main main";
+}
+
+.display {
+    grid-area: header;
+    text-align: right;
+
 }
