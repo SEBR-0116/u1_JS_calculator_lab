@@ -1,0 +1,25 @@
+//Getting all buttons
+// const getButton_ac = document.getElementById("ac")
+// const getButton_plusminus = document.getElementById("plus-minus")
+// const getButton_modulus = document.getElementById("modulus")
+// const getButton_divide = document.getElementById("divide")
+// const getButton_seven = document.getElementById("seven")
+// const getButton_eight = document.getElementById("eight")
+// const getButton_nine = document.getElementById("nine")
+// const getButton_multiply = document.getElementById("multiply")
+// const getButton_four = document.getElementById("four")
+// const getButton_five = document.getElementById("five")
+// const getButton_six = document.getElementById("six")
+// const getButton_subtract = document.getElementById("subtract")
+// const getButton_one = document.getElementById("one")
+// const getButton_two = document.getElementById("two")
+// const getButton_three = document.getElementById("three")
+// const getButton_plus = document.getElementById("plus")
+// const getButton_zero = document.getElementById("zero")
+// const getButton_dot = document.getElementById("dot")
+// const getButton_equalto = document.getElementById("equalto")
+
+const getButtons = document.querySelectorAll(`.pick`)
+console.log(getButtons)
+//
+

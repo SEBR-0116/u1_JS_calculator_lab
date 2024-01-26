@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <link rel="stylesheet" href="style.css">
+  
     <title>Calculator</title>
 </head>
 <body>
@@ -9,36 +11,37 @@
         <div id="Calculator-display">0</div>
         <div class="Calculator-User">
             <div class="set1">
-                <button class="white" id="AC">AC</button>
-                <button class="white" id="plus-minus">+/-</button>
-                <button class="white" id="Modulus">%</button>
-                <button class="orange" id="divide">/</button>
+                <button class="white pick" id="ac">AC</button>
+                <button class="white pick" id="plus-minus">+/-</button>
+                <button class="white pick" id="modulus">%</button>
+                <button class="orange pick" id="divide">/</button>
             </div>
             <div class="set2">
-                <button class="grey" id="seven">7</button>
-                <button class="grey" id="eight">8</button>
-                <button class="grey" id="nine">9</button>
-                <button class="orange" id="multiply">X</button>
+                <button class="grey pick" id="seven" data-value="7">7</button>
+                <button class="grey pick" id="eight" data-value="8">8</button>
+                <button class="grey pick" id="nine" data-value="9">9</button>
+                <button class="orange pick" id="multiply">X</button>
             </div>
             <div class="set3">
-                <button class="grey" id="four">4</button>
-                <button class="grey" id="five">5</button>
-                <button class="grey" id="six">6</button>
-                <button class="orange" id="subtract">-</button>
+                <button class="grey pick" id="four" data-value="4">4</button>
+                <button class="grey pick" id="five" data-value="5">5</button>
+                <button class="grey pick" id="six" data-value="6">6</button>
+                <button class="orange pick" id="subtract">-</button>
             </div>
             <div class="set4">
-                <button class="grey" id="one">1</button>
-                <button class="grey" id="two">2</button>
-                <button class="grey" id="three">3</button>
-                <button class="orange" id="plus">+</button>
+                <button class="grey pick" id="one" data-value="1">1</button>
+                <button class="grey pick" id="two" data-value="2">2</button>
+                <button class="grey pick" id="three" data-value="3">3</button>
+                <button class="orange pick" id="plus">+</button>
             </div>
             <div class="set4">
-                <button class="grey" id="zero">0</button>
-                <button class="grey" id="dot">.</button>
-                <button class="orange" id="equalto">=</button>
+                <button class="grey pick" id="zero" data-value="0">0</button>
+                <button class="grey pick" id="dot">.</button>
+                <button class="orange pick" id="equalto">=</button>
             </div>
         </div>
         
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
